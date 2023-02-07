@@ -27,7 +27,7 @@ class SSalesPurchase(models.Model):
         hr_department_record = self.env['hr.department'].search([])
         department_name = hr_department_record.mapped('name')
         department_real_revenue = hr_department_record.mapped('real_revenue')
-        department_revenue_defference = hr_department_record.mapped('revenue_difference')
+        department_revenue_defference = hr_department_record.mapped('difference_revenue')
 
         # data for email templates
         ctx ={}

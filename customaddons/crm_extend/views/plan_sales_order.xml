@@ -55,6 +55,7 @@
                 <field name="name"/>
                 <field name ="quotation"/>
                 <field name="infor_plan"/>
+                <field name="state"/>
             </tree>
         </field>
     </record>

@@ -13,8 +13,8 @@ class PlanSaleOrder(models.Model):
     state = fields.Selection(
         [('new','New'),
          ('send', 'Send'),
-         ('approve','Approve'),
-         ('refuse','Refuse'),
+         ('approve','Approved'),
+         ('refuse','Refused'),
          ], string="State", default='new')
     check_send = fields.Boolean(compute='_compute_check_send')
     approver_id = fields.One2many('approver.list','plan_sale_order_id',string="Approver")

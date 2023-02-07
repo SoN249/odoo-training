@@ -10,6 +10,7 @@
                 </xpath>
             </field>
         </record>
+
         <record model="ir.ui.view" id="report_view_tree">
             <field name="name">report.tree.inherit</field>
             <field name="model">hr.department</field>

@@ -19,7 +19,7 @@ class SalesPurchase(http.Controller):
             hr_department = request.env['hr.department'].sudo().search([('create_month', '=', body["month"])])
             department_name = hr_department.mapped('name')
             real_cost = hr_department.mapped('real_revenue')
-            real_cost_difference = hr_department.mapped('revenue_difference')
+            real_cost_difference = hr_department.mapped('difference_revenue')
             context = {
                 "sales": [],
                 "purchase": []

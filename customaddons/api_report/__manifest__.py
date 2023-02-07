@@ -1,7 +1,7 @@
 {
     'name': "Api Report",
     'summary': "My api",
-    'depends': ['base','crm_extend','purchase_extend','mail'],
+    'depends': ['base','crm_extend','purchase_extend','mail','hr'],
     'version': '15.0.1',
     'data': [
         'security/ir.model.access.csv',

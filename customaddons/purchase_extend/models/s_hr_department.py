@@ -5,7 +5,7 @@ from odoo.exceptions import UserError, ValidationError
 class SHrDepartment(models.Model):
     _inherit = 'hr.department'
     _description = 'Manage department'
-    limit = fields.Float('Spending limit', digits=(14, 4))
+    limit = fields.Float('Spending limit', digits=(12, 2))
     real_revenue = fields.Float(string='Real Revenue', compute='_compute_real_revenue', store=False)
     create_month = fields.Integer('Create Month', compute='_compute_create_month', store=True)
 

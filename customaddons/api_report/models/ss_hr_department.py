@@ -2,10 +2,11 @@ from odoo import models, fields, api
 class SSHrDepartment(models.Model):
     _inherit = 'hr.department'
 
-    revenue_difference = fields.Float('Revenue Difference', compute='_compute_revenue_difference', store=True)
+    difference_revenue = fields.Float('Difference Revenue', compute='_compute_difference_revenue', store=False)
 
-    def _compute_revenue_difference(self):
+    def _compute_difference_revenue(self):
         for rec in self:
             if rec.real_revenue:
-                # Calculate revenue difference
-                rec.revenue_difference = rec.real_revenue - rec.limit
+                rec.difference_revenue = rec.real_revenue - rec.limit
+            else:
+                rec.difference_revenue = 0
