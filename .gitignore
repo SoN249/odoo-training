@@ -12,7 +12,7 @@ LICENSE
 odoo-bin
 venv
 customaddons/crm_extend
-customaddons/purchase_extend
+customaddons/api_report
 setup.py
 # sphinx build directories
 _build/
