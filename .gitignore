@@ -9,12 +9,11 @@ COPYRIGHT
 LICENSE
 *.in
 *.cfg
-*.py
 odoo-bin
 venv
 customaddons/api_report
 customaddons/purchase_extend
-
+setup.py
 # sphinx build directories
 _build/
 
