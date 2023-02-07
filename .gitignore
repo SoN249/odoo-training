@@ -11,18 +11,17 @@ LICENSE
 *.cfg
 odoo-bin
 venv
-<<<<<<< HEAD
+
 setup.py
 # sphinx build directories
 _build/
-=======
+
 customaddons/api_report
 customaddons/purchase_extend
 setup.py
 # sphinx build directories
 _build/
 
->>>>>>> origin/main
 # dotfiles
 .*
 !.gitignore
