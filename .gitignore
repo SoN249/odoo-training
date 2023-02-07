@@ -12,10 +12,12 @@ LICENSE
 odoo-bin
 venv
 
+customaddons/crm_extend
+customaddons/purchase_extend
+
 setup.py
 # sphinx build directories
 _build/
-
 setup.py
 # sphinx build directories
 _build/
@@ -66,5 +68,4 @@ package.json
 /man/
 /share/
 /src/
-
 
