@@ -12,9 +12,6 @@ LICENSE
 odoo-bin
 venv
 
-customaddons/crm_extend
-customaddons/api_report
-customaddons/purchase_extend
 setup.py
 _build/
 setup.py
