@@ -12,20 +12,16 @@ class SPurchaseOrderLine(models.Model):
         for rec in self:
             if rec.product_id:
                 # get list id of supplier with price ascending
-                supplier_line_price = self.env['product.supplierinfo'].search(
-                    [('product_tmpl_id', '=', rec.product_id.id)],
-                    order='price asc')
-                # get name supplier
+                supplier_line_price = self.env['product.supplierinfo'].search([('product_id', '=', rec.product_id.id)], order='price asc')
+        # get name supplier
                 supplier_price = supplier_line_price.mapped('partner_id.name')
-                # Check if many supplier have same price then check delay of supplier
+        # Check if many supplier have same price then check delay of supplier
                 if len(supplier_price) > 1:
                     # Get list delay of supplier
                     supplier_line_delay = self.env['product.supplierinfo'].search(
-                        [('product_tmpl_id', '=', rec.product_id.id)],
+                        [('product_id', '=', rec.product_id.id)],
                         order='delay asc', limit=1)
-
                     supplier_delay = supplier_line_delay.mapped('partner_id.name')
-
                     rec.vendors = ''.join(supplier_delay)
                 else:
                      rec.vendors = ''.join(supplier_price)

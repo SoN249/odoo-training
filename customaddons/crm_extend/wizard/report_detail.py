@@ -1,5 +1,3 @@
-from email.policy import default
-
 from odoo import fields, models, api, _
 from datetime import date
 
@@ -27,9 +25,9 @@ class ReportDetail(models.Model):
 
 
     def btn_confirm(self):
+        if self.month == '0':
+            self.month = str(date.today().month)
         if self.month and self.sale_team:
-            if self.month == '0':
-                self.month = str(date.today().month)
             sale_teams_id = self.sale_team.mapped('id')
             context = {
                 'name': _("Detail Report"),

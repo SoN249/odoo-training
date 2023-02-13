@@ -30,16 +30,16 @@ class SSalesPurchase(models.Model):
         department_revenue_defference = hr_department_record.mapped('difference_revenue')
 
         # data for email templates
-        ctx ={}
-        ctx['name_department'] = department_name
-        ctx['department_real_revenue'] =department_real_revenue
-        ctx['department_revenue_defference'] = department_revenue_defference
-        ctx['sales_team_name'] = sales_team_name
-        ctx['real_revenue'] = real_revenue
-        ctx['revenue_difference'] = revenue_difference
-        ctx['email_to'] = ';'.join(map(lambda x: x, email_accountant))
-        ctx['email_from'] = self.env.user.company_id.email
-        ctx['send_email'] = True
+        ctx = {'name_department': department_name,
+               'department_real_revenue': department_real_revenue,
+               'department_revenue_defference': department_revenue_defference,
+               'sales_team_name': sales_team_name,
+               'real_revenue': real_revenue,
+               'revenue_difference': revenue_difference,
+               'email_to': ';'.join(map(lambda x: x, email_accountant)),
+               'email_from': self.env.user.company_id.email,
+               'send_email': True}
+
         template = self.env.ref('api_report.sale_purchase_email_template')
         template.with_context(ctx).send_mail(self.id, force_send=True, raise_exception=False)
 

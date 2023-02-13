@@ -6,7 +6,7 @@
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='payment_term_id']" position="after">
-                <field name="plan_sale" domain="[('quotation','=', id)]"/>
+                <field name="plan_sale" domain="[('quotation','=', id)]" attrs="{'readonly':[('state', 'in', ('sale'))]}"/>
             </xpath>
 
             <xpath expr="//button[@name='action_confirm']" position="after">

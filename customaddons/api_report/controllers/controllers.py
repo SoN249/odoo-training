@@ -1,6 +1,7 @@
 from odoo import http
 from odoo.http import request
 import json
+from odoo.exceptions import ValidationError
 
 class SalesPurchase(http.Controller):
     @http.route('/api_report', type='json', auth='none', methods=["POST"], csrf=False)
@@ -8,8 +9,12 @@ class SalesPurchase(http.Controller):
 
         body = json.loads(request.httprequest.data)
         access_token = "odooneverdie"
+        if not body.get('access_token'):
+            raise ValidationError("Invalid access token")
+        if not body.get('month'):
+            raise ValidationError("Invalid month")
 
-        if body["token"] == access_token and body["month"]:
+        if body["access_token"] == access_token:
             indicator_evaluation = request.env['indicator.evaluation'].sudo().search([('month', '=', body["month"])])
             sale_team = indicator_evaluation.mapped('sale_team')
             sale_team_name = sale_team.mapped('name')
